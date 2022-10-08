@@ -1,3 +1,4 @@
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sandbox/firebase_options.dart';
@@ -51,5 +52,9 @@ class MyHomePage extends StatelessWidget {
   }
 
   /// ボタンタップに対するイベントハンドラ
-  void callCloudFunction() {}
+  void callCloudFunction() async {
+    final functions = FirebaseFunctions.instance;
+    final callable = functions.httpsCallable('functionname');
+    await callable();
+  }
 }
