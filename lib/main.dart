@@ -44,17 +44,10 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: callCloudFunction,
+        onPressed: () {},
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
     );
-  }
-
-  /// ボタンタップに対するイベントハンドラ
-  void callCloudFunction() async {
-    final functions = FirebaseFunctions.instance;
-    final callable = functions.httpsCallable('functionname');
-    await callable();
   }
 }
