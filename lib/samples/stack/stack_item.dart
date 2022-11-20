@@ -29,7 +29,7 @@ class _StackItemState extends State<StackItem> {
   void initState() {
     super.initState();
 
-    Timer(Duration(milliseconds: widget.visibleMilliseconds), () {
+    timer = Timer(Duration(milliseconds: widget.visibleMilliseconds), () {
       setState(() {
         _visible = false;
       });
