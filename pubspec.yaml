@@ -16,6 +16,7 @@ dependencies:
   cloud_firestore: ^3.4.3
   firebase_auth: ^3.9.0
   cloud_functions: ^3.3.9
+  scratcher: ^2.3.0
 
 dev_dependencies:
   flutter_test:
