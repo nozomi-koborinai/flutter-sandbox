@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
           children: [
             ElevatedButton(
               child: const Text('stack_sample'),
-              onPressed: () => _onPressed(context),
+              onPressed: () => _onPressed(context, const StackSample()),
             )
           ],
         ),
@@ -24,13 +24,11 @@ class HomePage extends StatelessWidget {
   }
 }
 
-Future<void> _onPressed(BuildContext context) async {
-  // （1） 指定した画面に遷移する
+Future<void> _onPressed(BuildContext context, Widget widget) async {
   Navigator.push(
     context,
     MaterialPageRoute(
-      // （2） 実際に表示するページ(ウィジェット)を指定する
-      builder: (context) => const StackSample(),
+      builder: (context) => widget,
     ),
   );
 }
