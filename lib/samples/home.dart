@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sandbox/samples/scratcher/scratcher_page.dart';
 import 'package:flutter_sandbox/samples/stack/stack_sample.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,7 +17,11 @@ class HomePage extends StatelessWidget {
             ElevatedButton(
               child: const Text('stack_sample'),
               onPressed: () => _onPressed(context, const StackSample()),
-            )
+            ),
+            ElevatedButton(
+              child: const Text('scratcher'),
+              onPressed: () => _onPressed(context, const ScratcherPage()),
+            ),
           ],
         ),
       ),
