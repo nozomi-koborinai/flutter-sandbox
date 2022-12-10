@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Sand Box',
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(color: Colors.transparent),
         useMaterial3: true,
         primarySwatch: Colors.blue,
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sandbox/samples/command_design_pattern/command_design_pattern_page.dart';
+import 'package:flutter_sandbox/samples/command_design_pattern/widget/page/command_example_page.dart';
 import 'package:flutter_sandbox/samples/scratcher/scratcher_page.dart';
 import 'package:flutter_sandbox/samples/spotify_api/spotify_api_sample_page.dart';
 import 'package:flutter_sandbox/samples/stack/stack_sample.dart';
@@ -11,7 +11,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Sand Box'),
+        title: Text(
+          'Flutter Sand Box',
+          style: TextStyle(color: Colors.grey[700]),
+        ),
       ),
       body: Center(
         child: Column(
@@ -31,8 +34,7 @@ class HomePage extends StatelessWidget {
             ),
             ElevatedButton(
               child: const Text('command_design_pattern'),
-              onPressed: () =>
-                  _onPressed(context, const CommandDesignPatternPage()),
+              onPressed: () => _onPressed(context, const CommandExamplePage()),
             ),
           ],
         ),
