@@ -1,8 +1,7 @@
-import 'dart:collection';
 import 'command.dart';
 
 class CommandHistory {
-  final ListQueue<Command> _commandList = ListQueue<Command>();
+  final List<Command> _commandList = <Command>[];
 
   bool get isEmpty => _commandList.isEmpty;
   List<String> get commandHistoryList =>
