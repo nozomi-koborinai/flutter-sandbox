@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sandbox/samples/command_design_pattern/command_design_pattern_page.dart';
 import 'package:flutter_sandbox/samples/scratcher/scratcher_page.dart';
 import 'package:flutter_sandbox/samples/spotify_api/spotify_api_sample_page.dart';
 import 'package:flutter_sandbox/samples/stack/stack_sample.dart';
@@ -27,6 +28,11 @@ class HomePage extends StatelessWidget {
               child: const Text('spotify_api_sample'),
               onPressed: () =>
                   _onPressed(context, const SpotifyApiSamplePage()),
+            ),
+            ElevatedButton(
+              child: const Text('command_design_pattern'),
+              onPressed: () =>
+                  _onPressed(context, const CommandDesignPatternPage()),
             ),
           ],
         ),
