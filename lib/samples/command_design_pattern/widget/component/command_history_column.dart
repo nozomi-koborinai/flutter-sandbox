@@ -12,10 +12,10 @@ class CommandHistoryColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text(
-            'Command history:',
+            'Command history',
           ),
           if (commandList.isEmpty) const Text('Command history is empty.'),
           for (var i = 0; i < commandList.length; i++)
