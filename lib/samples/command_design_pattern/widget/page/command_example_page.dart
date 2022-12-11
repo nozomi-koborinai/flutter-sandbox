@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sandbox/samples/command_design_pattern/command/change_icon_command.dart';
 
 import '../../command/change_color_command.dart';
 import '../../command/change_height_command.dart';
@@ -46,6 +47,14 @@ class _CommandExamplePageState extends State<CommandExamplePage> {
     _executeCommand(command);
   }
 
+  /// Invoker(アイコン変更ボタン押下時に呼ばれるメソッド)
+  void _changeIcon() {
+    // CommandのReceiverとして_shapeを渡す
+    final command = ChangeIconCommand(_shape);
+    // 実行したコマンドをコマンド履歴に追加
+    _executeCommand(command);
+  }
+
   void _executeCommand(Command command) {
     setState(() {
       command.execute();
@@ -86,8 +95,8 @@ class _CommandExamplePageState extends State<CommandExamplePage> {
                     color: _shape.color,
                     borderRadius: BorderRadius.circular(10.0),
                   ),
-                  child: const Icon(
-                    Icons.star,
+                  child: Icon(
+                    _shape.icon,
                     color: Colors.white,
                   ),
                 ),
@@ -107,6 +116,11 @@ class _CommandExamplePageState extends State<CommandExamplePage> {
             ElevatedButton(
               onPressed: _changeWidth,
               child: const Text('Change width command'),
+            ),
+            const SizedBox(height: 5),
+            ElevatedButton(
+              onPressed: _changeIcon,
+              child: const Text('Change icon command'),
             ),
             const Divider(),
             ElevatedButton(
