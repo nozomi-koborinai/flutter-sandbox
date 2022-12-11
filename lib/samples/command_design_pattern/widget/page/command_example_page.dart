@@ -8,6 +8,7 @@ import '../../command/command_history.dart';
 import '../component/command_history_column.dart';
 import '../component/shape.dart';
 
+/// Commandサンプルアプリページ
 class CommandExamplePage extends StatefulWidget {
   const CommandExamplePage({super.key});
 
@@ -16,21 +17,32 @@ class CommandExamplePage extends StatefulWidget {
 }
 
 class _CommandExamplePageState extends State<CommandExamplePage> {
+  // undoを実現するためのCommand履歴
   final CommandHistory _commandHistory = CommandHistory();
+  // Receiver(shape)の初期設定
   final Shape _shape = Shape.initial();
 
+  /// Invoker(色変更ボタン押下時に呼ばれるメソッド)
   void _changeColor() {
+    // CommandのReceiverとして_shapeを渡す
     final command = ChangeColorCommand(_shape);
+    // 実行したコマンドをコマンド履歴に追加
     _executeCommand(command);
   }
 
+  /// Invoker(高さ変更ボタン押下時に呼ばれるメソッド)
   void _changeHeight() {
+    // CommandのReceiverとして_shapeを渡す
     final command = ChangeHeightCommand(_shape);
+    // 実行したコマンドをコマンド履歴に追加
     _executeCommand(command);
   }
 
+  /// Invoker(幅変更ボタン押下時に呼ばれるメソッド)
   void _changeWidth() {
+    // CommandのReceiverとして_shapeを渡す
     final command = ChangeWidthCommand(_shape);
+    // 実行したコマンドをコマンド履歴に追加
     _executeCommand(command);
   }
 

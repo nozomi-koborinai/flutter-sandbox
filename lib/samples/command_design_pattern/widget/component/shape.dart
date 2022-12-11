@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Commandの受取手、Command処理の対象オブジェクト
 class Shape {
   late Color color;
   late double height;
