@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sandbox/samples/command_design_pattern/command_example_page.dart';
+import 'package:flutter_sandbox/samples/google_map/google_maps_flutter_page.dart';
 import 'package:flutter_sandbox/samples/scratcher/scratcher_page.dart';
 import 'package:flutter_sandbox/samples/spotify_api/spotify_api_sample_page.dart';
 import 'package:flutter_sandbox/samples/stack/stack_sample.dart';
@@ -35,6 +36,11 @@ class HomePage extends StatelessWidget {
             ElevatedButton(
               child: const Text('command_design_pattern'),
               onPressed: () => _onPressed(context, const CommandExamplePage()),
+            ),
+            ElevatedButton(
+              child: const Text('google_maps_flutter'),
+              onPressed: () =>
+                  _onPressed(context, const GoogleMapsFlutterPage()),
             ),
           ],
         ),
