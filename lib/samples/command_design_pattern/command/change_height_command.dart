@@ -1,4 +1,4 @@
-import '../widget/component/shape.dart';
+import '../component/shape.dart';
 import 'command.dart';
 import 'dart:math' as math;
 

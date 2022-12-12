@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sandbox/samples/command_design_pattern/command/change_icon_command.dart';
 
-import '../../command/change_color_command.dart';
-import '../../command/change_height_command.dart';
-import '../../command/change_width_command.dart';
-import '../../command/command.dart';
-import '../../command/command_history.dart';
-import '../component/command_history_column.dart';
-import '../component/shape.dart';
+import 'command/change_color_command.dart';
+import 'command/change_height_command.dart';
+import 'command/change_width_command.dart';
+import 'command/command.dart';
+import 'command/command_history.dart';
+import 'component/command_history_column.dart';
+import 'component/shape.dart';
 
 /// Commandサンプルアプリページ
 class CommandExamplePage extends StatefulWidget {
