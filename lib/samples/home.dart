@@ -39,8 +39,7 @@ class HomePage extends StatelessWidget {
             ),
             ElevatedButton(
               child: const Text('google_maps_flutter'),
-              onPressed: () =>
-                  _onPressed(context, const GoogleMapsFlutterPage()),
+              onPressed: () => _onPressed(context, GoogleMapsFlutterPage()),
             ),
           ],
         ),

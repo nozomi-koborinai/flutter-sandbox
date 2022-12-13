@@ -1,71 +1,116 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
+import 'package:flutter_sandbox/samples/google_map/service.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 /// https://pub.dev/packages/google_maps_flutter
 class GoogleMapsFlutterPage extends StatefulWidget {
-  const GoogleMapsFlutterPage({super.key});
-
   @override
-  _GoogleMapsFlutterPage createState() => _GoogleMapsFlutterPage();
+  State<GoogleMapsFlutterPage> createState() => GoogleMapsFlutterPageState();
 }
 
-class _GoogleMapsFlutterPage extends State<GoogleMapsFlutterPage> {
-  Position? currentPosition;
-  final Completer<GoogleMapController> _controller = Completer();
-  late StreamSubscription<Position> positionStream;
-  final LocationSettings locationSettings = const LocationSettings(
-    accuracy: LocationAccuracy.high,
-    distanceFilter: 100,
+class GoogleMapsFlutterPageState extends State<GoogleMapsFlutterPage> {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  Completer<GoogleMapController> _controller = Completer();
+  static final CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(37.42796133580684, -122.085749655962),
+    zoom: 14.4746,
   );
-  final CameraPosition initPosition = const CameraPosition(
-    target: LatLng(35.689, 139.692),
-    zoom: 14,
-  );
+  Set<Polyline> _lines = {};
+  Set<Marker> _markers = {};
+  String _drawer_name = "";
+  String _drawer_info = "";
+  String _drawer_lat = "";
+  String _drawer_lng = "";
 
   @override
   void initState() {
     super.initState();
-    //位置情報が許可されていない時に許可をリクエストする
-    Future(() async {
-      final permission = await Geolocator.checkPermission();
-      if (permission == LocationPermission.denied) {
-        await Geolocator.requestPermission();
-      }
-    });
-
-    //現在位置を更新し続ける
-    positionStream =
-        Geolocator.getPositionStream(locationSettings: locationSettings)
-            .listen((Position? position) {
-      currentPosition = position;
-      print(
-        position == null
-            ? 'Unknown'
-            : '${position.latitude.toString()}, ${position.longitude.toString()}',
-      );
-    });
+    createPolylines();
+    createMarkers();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('google_maps_flutter_page'),
-      ),
-      body: GoogleMap(
-        compassEnabled: false,
-        onMapCreated: _controller.complete,
-        myLocationEnabled: true,
-        initialCameraPosition: initPosition,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
-        child: const Icon(Icons.search),
+      appBar: AppBar(),
+      body: Column(
+        children: [
+          FlutterLogo(),
+          MapContainer(),
+          FlutterLogo(),
+        ],
       ),
     );
+  }
+
+  MapContainer() {
+    return Expanded(
+        child: Container(
+      width: 1000,
+      height: 900,
+      child: Scaffold(
+        key: _scaffoldKey,
+        resizeToAvoidBottomInset: false,
+        drawer: MapDrawer(),
+        body: GoogleMap(
+          mapType: MapType.normal,
+          initialCameraPosition: _kGooglePlex,
+          markers: _markers,
+          polylines: _lines,
+          onMapCreated: (GoogleMapController controller) {
+            _controller.complete(controller);
+          },
+        ),
+      ),
+    ));
+  }
+
+  MapDrawer() {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          ListTile(
+            title: Text("name: ${_drawer_name}"),
+          ),
+          ListTile(
+            title: Text("info: ${_drawer_info}"),
+          ),
+          ListTile(
+            title: Text("latitude: ${_drawer_lat}"),
+          ),
+          ListTile(
+            title: Text("longitude: ${_drawer_lng}"),
+          ),
+        ],
+      ),
+    );
+  }
+
+  marker_tapped(Place place) {
+    setState(() {
+      _drawer_name = place.name;
+      _drawer_info = place.info;
+      _drawer_lat = place.latlng.latitude.toString();
+      _drawer_lng = place.latlng.longitude.toString();
+    });
+    _scaffoldKey.currentState?.openDrawer();
+  }
+
+  void createMarkers() async {
+    Set<Marker> markers = await getMarkers(marker_tapped);
+    setState(() {
+      _markers = markers;
+    });
+  }
+
+  void createPolylines() async {
+    Set<Polyline> lines = await getLines();
+    setState(() {
+      _lines = lines;
+    });
   }
 }
 
