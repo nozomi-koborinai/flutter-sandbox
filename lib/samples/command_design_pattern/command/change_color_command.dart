@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-import '../component/shape.dart';
+import '../receiver/shape.dart';
 import 'command.dart';
 
 /// 色変更コマンド

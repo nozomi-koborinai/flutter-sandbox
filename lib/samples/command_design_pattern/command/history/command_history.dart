@@ -1,4 +1,4 @@
-import 'command.dart';
+import '../command.dart';
 
 /// 実行したCommandを履歴管理するためのオブジェクト
 class CommandHistory {

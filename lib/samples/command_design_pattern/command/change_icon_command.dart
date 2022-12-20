@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../component/shape.dart';
+import '../receiver/shape.dart';
 import 'command.dart';
 
 /// アイコン変更コマンド
