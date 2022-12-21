@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sandbox/samples/command_design_pattern/client_and_invoker/command_example_page.dart';
+import 'package:flutter_sandbox/samples/command_design_pattern/client_invoker/command_example_page.dart';
 import 'package:flutter_sandbox/samples/google_map/google_maps_flutter_page.dart';
 import 'package:flutter_sandbox/samples/scratcher/scratcher_page.dart';
 import 'package:flutter_sandbox/samples/spotify_api/spotify_api_sample_page.dart';
