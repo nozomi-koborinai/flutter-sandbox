@@ -6,6 +6,8 @@ import 'package:flutter_sandbox/samples/spotify_api/spotify_api_sample_page.dart
 import 'package:flutter_sandbox/samples/stack/stack_sample.dart';
 import 'package:gap/gap.dart';
 
+import 'observer_design_pattern/observer_example_page.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -38,13 +40,18 @@ class HomePage extends StatelessWidget {
             ),
             const Gap(7),
             ElevatedButton(
+              child: const Text('google_maps_flutter'),
+              onPressed: () => _onPressed(context, GoogleMapsFlutterPage()),
+            ),
+            const Gap(7),
+            ElevatedButton(
               child: const Text('command_design_pattern'),
               onPressed: () => _onPressed(context, const CommandExamplePage()),
             ),
             const Gap(7),
             ElevatedButton(
-              child: const Text('google_maps_flutter'),
-              onPressed: () => _onPressed(context, GoogleMapsFlutterPage()),
+              child: const Text('observer_design_pattern'),
+              onPressed: () => _onPressed(context, const ObserverExamplePage()),
             ),
             const Gap(7),
           ],
