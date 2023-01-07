@@ -6,7 +6,7 @@ import 'package:flutter_sandbox/samples/spotify_api/spotify_api_sample_page.dart
 import 'package:flutter_sandbox/samples/stack/stack_sample.dart';
 import 'package:gap/gap.dart';
 
-import 'observer_design_pattern/observer_example_page.dart';
+import 'observer_design_pattern/view/observer_example_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
