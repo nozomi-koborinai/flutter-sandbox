@@ -7,10 +7,15 @@ class Shape {
   late double width;
   late IconData icon;
 
+  Shape(this.color, this.height, this.width, this.icon);
+
   Shape.initial() {
     color = Colors.black;
     height = 150.0;
     width = 150.0;
     icon = Icons.star;
   }
+
+  Shape.copy(Shape shape)
+      : this(shape.color, shape.height, shape.width, shape.icon);
 }
