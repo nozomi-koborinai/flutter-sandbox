@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sandbox/components/visiblity_elevated_button.dart';
 import 'package:flutter_sandbox/samples/command_design_pattern/client_invoker/command_example_page.dart';
+import 'package:flutter_sandbox/samples/console_output/console_output_page.dart';
 import 'package:flutter_sandbox/samples/google_map/google_maps_flutter_page.dart';
 import 'package:flutter_sandbox/samples/scratcher/scratcher_page.dart';
 import 'package:flutter_sandbox/samples/stack/stack_sample.dart';
@@ -24,16 +25,21 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             VisibilityElevatedButton(
+              title: 'console_output',
+              onPressed: () => _onPressed(context, const ConsoleOutputPage()),
+            ),
+            const Gap(7),
+            VisibilityElevatedButton(
               title: 'stack_sample',
               onPressed: () => _onPressed(context, const StackSample()),
             ),
-            const Gap(7),
+            // const Gap(7),
             VisibilityElevatedButton(
               title: 'scratcher',
               visible: false,
               onPressed: () => _onPressed(context, const ScratcherPage()),
             ),
-            const Gap(7),
+            // const Gap(7),
             VisibilityElevatedButton(
               title: 'google_maps_flutter',
               visible: false,
