@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sandbox/components/visiblity_elevated_button.dart';
 import 'package:flutter_sandbox/samples/command_design_pattern/client_invoker/command_example_page.dart';
 import 'package:flutter_sandbox/samples/google_map/google_maps_flutter_page.dart';
 import 'package:flutter_sandbox/samples/scratcher/scratcher_page.dart';
-import 'package:flutter_sandbox/samples/spotify_api/spotify_api_sample_page.dart';
 import 'package:flutter_sandbox/samples/stack/stack_sample.dart';
 import 'package:gap/gap.dart';
 
@@ -23,34 +23,31 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            ElevatedButton(
-              child: const Text('stack_sample'),
+            VisibilityElevatedButton(
+              title: 'stack_sample',
               onPressed: () => _onPressed(context, const StackSample()),
             ),
             const Gap(7),
-            ElevatedButton(
-              child: const Text('scratcher'),
+            VisibilityElevatedButton(
+              title: 'scratcher',
+              visible: false,
               onPressed: () => _onPressed(context, const ScratcherPage()),
             ),
             const Gap(7),
-            ElevatedButton(
-              child: const Text('spotify_api_sample'),
-              onPressed: () =>
-                  _onPressed(context, const SpotifyApiSamplePage()),
-            ),
-            const Gap(7),
-            ElevatedButton(
-              child: const Text('google_maps_flutter'),
+            VisibilityElevatedButton(
+              title: 'google_maps_flutter',
+              visible: false,
               onPressed: () => _onPressed(context, GoogleMapsFlutterPage()),
             ),
             const Gap(7),
-            ElevatedButton(
-              child: const Text('command_design_pattern'),
+            VisibilityElevatedButton(
+              title: 'command_design_pattern',
               onPressed: () => _onPressed(context, const CommandExamplePage()),
             ),
             const Gap(7),
-            ElevatedButton(
-              child: const Text('observer_design_pattern'),
+            VisibilityElevatedButton(
+              title: 'observer_design_pattern',
+              visible: false,
               onPressed: () => _onPressed(context, const ObserverExamplePage()),
             ),
             const Gap(7),
