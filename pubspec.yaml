@@ -12,10 +12,9 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
-  firebase_core: ^1.20.0
-  cloud_firestore: ^3.4.3
-  firebase_auth: ^3.9.0
-  cloud_functions: ^3.3.9
+  firebase_core: ^1.24.0
+  cloud_firestore: ^3.5.1
+  firebase_auth: ^3.11.2
   scratcher: ^2.3.0
   http: ^0.13.5
   google_maps_flutter: ^2.2.1
@@ -25,6 +24,9 @@ dependencies:
   gap: ^2.0.1
   faker: ^2.1.0
   freezed: ^2.3.2
+
+dependency_overrides: 
+  firebase_core_platform_interface: 4.5.1
 
 dev_dependencies:
   flutter_test:
