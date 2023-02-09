@@ -75,8 +75,11 @@ class StackSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: const Text('stack_sample'),
+        ),
         body: Stack(
-      children: items,
-    ));
+          children: items,
+        ));
   }
 }
