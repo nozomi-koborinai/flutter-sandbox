@@ -13,8 +13,19 @@ class ConsoleOutputPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('コンソール出力用ページ')),
-      body: VisibilityElevatedButton(
-          title: '出力のテスト', onPressed: () => {print('test')}),
+      body: Column(
+        children: [
+          VisibilityElevatedButton(
+              title: '出力のテスト', onPressed: () => {print('test')}),
+        ],
+      ),
     );
   }
+}
+
+/// コンソール出力メソッドをまとめたクラス
+class ConsoleOutputFunctions {
+  /// singleton
+  static final instance = ConsoleOutputFunctions._();
+  ConsoleOutputFunctions._();
 }
