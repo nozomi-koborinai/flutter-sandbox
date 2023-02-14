@@ -44,4 +44,3 @@ app.*.map.json
 /android/app/release
 
 lib/samples/google_map/secret_keys.dart
-web/index.html
