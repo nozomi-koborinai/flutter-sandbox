@@ -40,3 +40,13 @@ class MockSampleRepository implements SampleRepository {
     throw UnimplementedError();
   }
 }
+
+/// dart におけるインターフェース
+interface class Interface {
+  final test1 = 1;
+  var test2 = 2;
+
+  // void method1();                            // これだとメソッド本体がないためにコンパイルエラー
+  void method3() => test2 += 1; // 具象メソッドならコンパイルエラーにはならない
+  void method2() => throw UnimplementedError(); // 抽象メソッドっぽい具象メソッドを定義
+}
