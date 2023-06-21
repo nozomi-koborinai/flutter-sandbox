@@ -1,5 +1,10 @@
-class SampleRepository {
-  SampleRepository();
+///////////////////////////////////////////////////////
+/// 暗黙的インターフェースの検証
+///////////////////////////////////////////////////////
+
+/// クラス本体を作ると暗黙的インターフェースが作られる
+class Repository {
+  Repository();
 
   void add(Object obj) {
     return;
@@ -19,7 +24,7 @@ class SampleRepository {
 }
 
 /// SampleRepositoryに暗黙的に定義されたインタフェースを実装
-class MockSampleRepository implements SampleRepository {
+class RepositoryImpl1 implements Repository {
   @override
   void add(Object obj) {
     throw UnimplementedError();
@@ -40,6 +45,11 @@ class MockSampleRepository implements SampleRepository {
     throw UnimplementedError();
   }
 }
+
+/// 暗黙的インターフェースの実体は abstract interface なので、extends も可能
+/// extends の場合、継承元メソッドに対する実装の強制力はない
+/// 継承元に実装を強制したいメソッドがあったとしてもコンパイルエラーにはならないので実装漏れを起こす可能性がある
+class MockRepository2 extends Repository {}
 
 /// dart におけるインターフェース
 interface class Interface {
