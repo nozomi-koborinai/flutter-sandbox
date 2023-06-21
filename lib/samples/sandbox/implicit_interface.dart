@@ -49,7 +49,7 @@ class RepositoryImpl1 implements Repository {
 /// 暗黙的インターフェースの実体は abstract interface なので、extends も可能
 /// extends の場合、継承元メソッドに対する実装の強制力はない
 /// 継承元に実装を強制したいメソッドがあったとしてもコンパイルエラーにはならないので実装漏れを起こす可能性がある
-class MockRepository2 extends Repository {}
+class RepositoryImpl2 extends Repository {}
 
 /// dart におけるインターフェース
 interface class Interface {
